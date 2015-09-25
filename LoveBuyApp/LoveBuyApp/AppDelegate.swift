@@ -19,6 +19,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window!.backgroundColor = UIColor.whiteColor()
+        
+        let homeVC: HomeController = HomeController()
+        let nav0 = UINavigationController(rootViewController:homeVC);
+        let image0=UIImage(named:"icon_tab1_normal");
+        let nav0Item=UITabBarItem(title:"首页",image:image0,tag:0)
+        nav0Item.selectedImage=UIImage(named: "icon_tab1_selected")
+        nav0.tabBarItem=nav0Item
+        
+        
+        let personVC = PersonController();
+        let nav1 = UINavigationController(rootViewController:personVC);
+        let image1=UIImage(named:"icon_tab3_normal.png");
+        let nav1Item=UITabBarItem(title:"个人中心",image:image1,tag:1)
+        nav0Item.selectedImage=UIImage(named: "icon_tab1_selected")
+        nav1.tabBarItem=nav1Item
+        
+        
+        let navArr=[nav0,nav1];
+        let tabBarController=UITabBarController();
+        tabBarController.viewControllers=navArr;
+        tabBarController.tabBar.tintColor = UIColor.redColor()
+        self.window!.rootViewController=tabBarController;
+    
+        
+        
         return true
     }
 
